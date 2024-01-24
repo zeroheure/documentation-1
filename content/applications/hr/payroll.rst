@@ -238,6 +238,8 @@ There are two default structure types configured in Odoo: *Employee* and *Worker
    :align: center
    :alt: List of all currently configured structure types available to use.
 
+.. _payroll/new-structure-type:
+
 New structure type
 ------------------
 
@@ -557,6 +559,6 @@ the :guilabel:`Job Title`, :guilabel:`Department`, the :guilabel:`Contract Start
    :titlesonly:
 
    payroll/contracts
-   payroll/payslips
    payroll/work_entries
+   payroll/payslips
    payroll/reporting
