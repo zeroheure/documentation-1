@@ -289,6 +289,8 @@ Information` tab to access this section, and enter the following information for
    working hours using the drop-down menu in the :guilabel:`Schedule` section of the
    :guilabel:`Work Information` tab.
 
+.. _employees/private-info:
+
 Private Information tab
 -----------------------
 
