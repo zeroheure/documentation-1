@@ -41,10 +41,12 @@ localization:
      - `l10n_ar_edi`
      - Includes all technical and functional requirements to generate electronic invoices via web
        service, based on the AFIP regulations.
-   * - :guilabel:`Argentinean eCommerce`
+   * - :ref:`Argentinean eCommerce <argentina/ecommerce-electronic-invoicing>`
      - `l10n_ar_website_sale`
      - (optional) Allows the user to see Identification Type and AFIP Responsibility in the
        eCommerce checkout form in order to create electronic invoices.
+
+.. _argentina/configure-your-company:
 
 Configure your company
 ----------------------
@@ -549,6 +551,8 @@ When creating a :guilabel:`Credit Note` we can have two scenarios:
    :align: center
    :alt: FCE: Es Cancelación?
 
+.. _argentina/invoice-printed-report:
+
 Invoice printed report
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -871,6 +875,104 @@ The menu also displays critical information related to these operations, such as
   payment *received* from a customer
 - The :guilabel:`Journal` in which the check is currently registered
 - The **partner** associated with the operation (either customer or vendor).
+
+.. _argentina/ecommerce-electronic-invoicing:
+
+Ecommerce electronic invoicing
+------------------------------
+
+To install the *Argentinian eCommerce* module, go to :menuselection:`Apps` and search for the module
+by its technical name, `l10n_ar_website_sale`. Then, click the :guilabel:`Activate` button on the
+:guilabel:`Argentinian eCommerce` module.
+
+This module enables the following features and configurations:
+
+- Clients being able to create online accounts for eCommerce purposes.
+- Support for required fiscal fields in the eCommerce application.
+- Receive payments for sale orders online.
+- Generate electronic documents from the eCommerce application.
+
+.. note::
+   The Argentinian eCommerce module is dependent on the previous installation of the *Invoicing* or
+   *Accounting* apps.
+
+Configurations
+~~~~~~~~~~~~~~
+
+Once all of the configurations are made for the Argentinian :ref:`electronic invoice
+<argentina/configure-your-company>` flow, it is also necessary to complete certain configurations to
+integrate the eCommerce flow.
+
+Client account registration
+***************************
+
+To configure your website for client accounts, navigate to :menuselection:`Website --> Configuration
+--> Settings --> Shop - Checkout Process` and select one of the following options:
+
+- :guilabel:`Optional`: allows guests on the website to register an account directly from the
+  confirmation email of their order.
+- :guilabel:`Disabled (buy as guest)`: allows guests to buy and pay without an account.
+- :guilabel:`Mandatory (no guest checkout)`: requires the creation of an account to buy and pay in
+  *eCommerce*. Guest checkout is **not** allowed.
+
+.. note::
+   Using the :guilabel:`Optional` or  :guilabel:`Mandatory` options is recommended since either will
+   save the contact and their fiscal information for future purchases.
+
+Automatic invoice
+*****************
+
+Configure your website to generate electronic documents in the sales process by navigating to
+:menuselection:`Website --> Configuration --> Settings --> Invoicing` and activating the
+:guilabel:`Automatic Invoice` feature, which will automatically generate the required electronic
+documents when the online payment is confirmed.
+
+.. image:: argentina/l10nar-automatic-invoicing-ecommerce.png
+   :align: center
+   :alt: Feature activated to invoice automatically.
+
+Since an online payment needs to be confirmed for the :guilabel:`Automatic Invoice` feature to
+generate the document, a *payment provider* **must** be configured for the related website.
+
+.. note::
+   Review the :doc:`../payment_providers` documentation for information on which payment providers
+   are supported in Odoo, and how to configure them.
+
+Products
+********
+
+To allow your products to be invoiced when an online payment is confirmed, navigate to the desired
+product from :menuselection:`Website --> eCommerce --> Products`. On the :guilabel:`General
+Information` tab, set the :guilabel:`Invoicing Policy` to :guilabel:`Ordered quantities`.
+
+It is important to define the desired :guilabel:`Customer Taxes`, since this is a required field
+when creating an invoice that will be part of an electronic invoice flow.
+
+.. image:: argentina/l10nar-product-ecommerce.png
+   :align: center
+   :alt: Product configuration for Argentinian eCommerce.
+
+Invoicing flow for eCommerce
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When the configurations are all set, this feature will cover the next invoicing flow:
+
+- | **Client account creation**:
+  | If the client does not already have an account on your website, they can create a new one
+    from the website by selecting the :guilabel:`Sign In` button. Then, they can select the
+    :guilabel:`Don't have an account?` button to create an account. If you want to manage the
+    clients' access in the backend, review the :doc:`../../general/users/portal` documentation.
+- | **Input fiscal fields in the checkout process**:
+  | Fiscal fields are available for input in the checkout process. Inputting this data will enable
+    the purchase to conclude in the corresponding electronic document.
+
+    .. image:: argentina/l10nar-fiscal-fields-ar-ecommerce.png
+       :align: center
+       :alt: Fiscal required fields for electronic invoicing.
+
+    When the client makes a successful purchase and payment, the necessary invoice will be generated
+    with the correspondent layout and fiscal stamps stated in the :ref:`Invoice printed report
+    <argentina/invoice-printed-report>`.
 
 Reports
 =======
