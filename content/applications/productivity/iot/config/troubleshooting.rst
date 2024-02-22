@@ -418,3 +418,63 @@ The cash drawer should be connected to the printer and the :guilabel:`Cash drawe
 be ticked in the :abbr:`PoS (Point of Sale)` configuration. To do so, navigate to
 :menuselection:`POS app --> 3-Dot Menu on the POS --> IoT Box section --> Edit --> Receipt Printer
 --> Cashdrawer checkbox`.
+
+Scale
+=====
+
+Setup Guide for the Ariva S scales
+----------------------------------
+
+Odoo has determined that a specific setting in Ariva S series scales (manufactured by
+Mettler-Toledo, LLC.) needs modification, and a dedicated Mettler :abbr:`USB (Universal Serial Bus)`
+to proprietary RJ45 cable is required for the scale to function with Odoo :abbr:`IoT (Internet of
+Things)` box.
+
+To correctly configure the scale for recognition by the :abbr:`IoT (Internet of Things)` box, follow
+this setup process for the Ariva S series scales. It is crucial to use the official Mettler
+:abbr:`USB (Universal Serial Bus)` to RJ45 cable during this process.
+
+Cable
+~~~~~
+
+The Mettler part number is 72256236 - :abbr:`USB (Universal Serial Bus)` to :abbr:`POS (Point of
+Sale)` cable. Contact Mettler or a partner to purchase an authentic cable. Note that no
+other cable outside of this Mettler cable will work for this configuration. Using a serial-only
+cable attached to a serial to :abbr:`USB (Universal Serial Bus)` adapter will not be effective.
+
+.. image:: troubleshooting/cable-mettler.png
+   :align: center
+   :alt: Authentic Mettler USB to POS cable, part number 72256236.
+
+Setup
+~~~~~
+
+Refer to Mettler's Setup Guide for Ariva S series scales during the following configuration:
+`Ariva Checkout Scale User's Guide <https://www.mt.com/dam/RET_DOCS/Ariv.pdf>`_.
+
+To begin, go to page 17 in the above manual for 'Setup.' This guide lists potential settings for the
+Ariva S series scales. Follow the instructions along with the following process to set
+the scale to Setup Mode. First, hold the :guilabel:`>T<` button for eight seconds or until
+:guilabel:`CONF` appears.
+
+Next, press :guilabel:`>T<` until :guilabel:`GRP 3` appears, and then press :guilabel:`>0<` to
+confirm.
+
+Under :guilabel:`3.1` ensure the setting is set to :guilabel:`1` (USB Virtual COM ports). Press
+:guilabel:`>T<` to cycle through the options under Group 3.1.
+
+Once :guilabel:`3.1` is set to :guilabel:`1`, press :guilabel:`>0<` to confirm the selection.
+Continue to press :guilabel:`>0<` until :guilabel:`GRP 4` appears. Do not change any other setting
+unless needed.
+
+Now, press :guilabel:`>T<` until :guilabel:`EXIT` appears.
+
+.. important::
+   Do not make any other changes unless otherwise needed.
+
+Once, :guilabel:`EXIT` appears, press :guilabel:`>0<`. Following this, press :guilabel:`>0<` again
+to :guilabel:`SAVE`. Now the scale will restart.
+
+Finally, restart the :abbr:`IoT (Internet of Things)` box to recognize the changes made on
+the scale's configuration. After restarting, the scale will appear as `Toledo 8217`  opposed to
+the previous display where it appeared as `Adam Equipment Serial`.
