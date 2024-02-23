@@ -137,11 +137,3 @@ duplicate your database (among other things).
 
 .. image:: on_premise/db_manager.gif
    :align: center
-
-
-.. note::
-   From July 2016 onward, Odoo 9  and up now automatically changes the UUID of a duplicated database;
-   a manual operation is no longer required.
-
-.. image:: on_premise/db_uuid.png
-   :align: center
