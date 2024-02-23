@@ -1,8 +1,8 @@
 ==============================
-On-premise Database Management
+On-premise database management
 ==============================
 
-Register A Database
+Register a database
 ===================
 
 To register your database, you just need to enter your subscription code in the
@@ -27,7 +27,7 @@ Solutions
 
 * Do you have a valid Enterprise subscription?
 
-  * Check if your subscription details have the tag "In Progress" on
+  * Check if your subscription details have the tag :guilabel:`In Progress` on
     your `Odoo Account
     <https://accounts.odoo.com/my/subscription>`__ or with your Account Manager
 
@@ -66,7 +66,7 @@ Solutions
 
 * Check your network and firewall settings
 
-  * The Update notification must be able to reach Odoo’s subscription validation servers. In other
+  * The Update notification must be able to reach Odoo's subscription validation servers. In other
     words, make sure that the Odoo server can open outgoing connections towards:
 
     * services.odoo.com on port 443 (or 80)
@@ -105,7 +105,7 @@ right away.
 Database expired error message
 ------------------------------
 
-If your database reaches its expiration date before you renew your subscription,
+If your database expires before you renew your subscription,
 you will encounter this message:
 
 .. image:: on_premise/database_expired.png
@@ -113,13 +113,13 @@ you will encounter this message:
    :alt: This database has expired.
 
 This **blocking** message appears after a non-blocking message that lasts 30 days. If
-you fail to take action before the end of the countdown, the database will expire.
+you fail to act before the end of the countdown, the database will expire.
 
 Solutions
 ~~~~~~~~~
 
-* Renew your subscription: Follow the link and renew your subscription - note that if you wish to
-  pay by Wire Transfer, your subscription will effectively be renewed only when the payment arrives,
+* Renew your subscription: follow the link and renew your subscription. If you
+  pay by wire transfer, your subscription will be renewed when the payment arrives,
   which can take a few days. Credit card payments are processed immediately.
 
 * Contact our `Support <https://www.odoo.com/help>`__
@@ -132,25 +132,16 @@ Duplicate a database
 ====================
 
 You can duplicate your database by accessing the database manager on your
-server (<odoo-server>/web/database/manager). On this page, you can easily
+server (<odoo-server>/web/database/manager). On this page, you can
 duplicate your database (among other things).
 
 .. image:: on_premise/db_manager.gif
    :align: center
 
-When you duplicate a local database, it is **strongly** advised to change the duplicated
-database’s UUID (Unniversally Unique Identifier), since this UUID is how your database identifies
-itself with our servers. Having two databases with the same UUID could result in invoicing problems
-or registration problems down the line.
 
 .. note::
    From July 2016 onward, Odoo 9  and up now automatically changes the UUID of a duplicated database;
    a manual operation is no longer required.
-
-The database UUID is currently accessible from the menu :menuselection:`Settings --> Technical -->
-System Parameters`, we advise you to use a `UUID generator <https://www.uuidtools.com>`_ or to
-use the Unix command ``uuidgen`` to generate a new UUID. You can then simply replace it like any
-other record by clicking on it and using the edit button.
 
 .. image:: on_premise/db_uuid.png
    :align: center
