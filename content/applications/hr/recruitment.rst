@@ -5,7 +5,7 @@
 Recruitment
 ===========
 
-Odoo keeps all job applicants organized with a pre-configured series of steps and stages that each
+Odoo keeps all job applicants organized with a pre-configured series of steps, and stages that each
 applicant goes through. Each stage has a specific step(s) that should be performed. These range from
 scheduling a phone call, conducting an interview, to sending a job offer, just to name a few. This
 process is referred to as the 'applicant flow'.
